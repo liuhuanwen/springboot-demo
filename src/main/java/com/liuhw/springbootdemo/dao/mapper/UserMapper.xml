@@ -4,24 +4,4 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.liuhw.springbootdemo.dao.mapper.UserMapper">
 
-    <select id="queryUserList" resultType="com.liuhw.springbootdemo.dao.po.User">
-        select * from user
-    </select>
-
-    <select id="queryUserByid" parameterType="int" resultType="com.liuhw.springbootdemo.dao.po.User">
-        select * from user where id = #{userId}
-    </select>
-
-    <insert id="insertUser" parameterType="com.liuhw.springbootdemo.dao.po.User">
-        insert into user(name, age) values(#{name}, #{age})
-    </insert>
-
-    <delete id="deleteUserById" parameterType="int">
-        delete from user where id = #{userId}
-    </delete>
-
-    <update id="updateUser" parameterType="com.liuhw.springbootdemo.dao.po.User">
-        update user set name = #{name}, age = #{age} where id = #{id}
-    </update>
-
 </mapper>
