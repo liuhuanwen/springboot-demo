@@ -38,4 +38,14 @@ public class UserController {
         user.setAge(age);
         userService.addUser(user);
     }
+
+    @PostMapping("delUser")
+    void delUser(Integer userId) {
+        userService.delUser(userId);
+    }
+
+    @PostMapping("updateUser")
+    void updateUser(User user) {
+        userService.updateuser(user);
+    }
 }

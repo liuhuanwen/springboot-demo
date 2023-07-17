@@ -24,4 +24,12 @@ public class UserService {
     public void addUser(User user) {
         userMapper.insertUser(user);
     }
+
+    public void delUser(int userId) {
+        userMapper.deleteUserById(userId);
+    }
+
+    public void updateuser(User user) {
+        userMapper.updateUser(user);
+    }
 }

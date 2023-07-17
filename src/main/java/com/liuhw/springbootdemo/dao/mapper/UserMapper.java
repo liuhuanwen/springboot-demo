@@ -14,4 +14,8 @@ public interface UserMapper extends BaseMapper<User> {
     User queryUserByid(Integer userId);
 
     void insertUser(User user);
+
+    void deleteUserById(int userId);
+
+    void updateUser(User user);
 }

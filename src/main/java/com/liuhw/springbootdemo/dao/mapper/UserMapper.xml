@@ -16,4 +16,12 @@
         insert into user(name, age) values(#{name}, #{age})
     </insert>
 
+    <delete id="deleteUserById" parameterType="int">
+        delete from user where id = #{userId}
+    </delete>
+
+    <update id="updateUser" parameterType="com.liuhw.springbootdemo.dao.po.User">
+        update user set name = #{name}, age = #{age} where id = #{id}
+    </update>
+
 </mapper>
