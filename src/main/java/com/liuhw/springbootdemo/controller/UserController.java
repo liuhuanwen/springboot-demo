@@ -5,10 +5,7 @@ import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.liuhw.springbootdemo.dao.po.User;
 import com.liuhw.springbootdemo.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -20,7 +17,8 @@ public class UserController {
     private UserService userService;
 
     @GetMapping("list")
-    List<User> getAllUsers(Integer pageSize, Integer pageNum) {
+    List<User> getAllUsers(@RequestParam(defaultValue = "10") Integer pageSize,
+                           @RequestParam(defaultValue = "1") Integer pageNum) {
         return userService.listAllUsers(pageSize, pageNum);
     }
 
