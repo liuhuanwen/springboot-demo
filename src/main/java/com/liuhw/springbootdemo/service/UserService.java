@@ -1,8 +1,7 @@
 package com.liuhw.springbootdemo.service;
 
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
-import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
-import com.baomidou.mybatisplus.extension.service.IService;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.liuhw.springbootdemo.dao.mapper.UserMapper;
 import com.liuhw.springbootdemo.dao.po.User;
@@ -19,7 +18,11 @@ public class UserService extends ServiceImpl<UserMapper, User> implements IUserS
 
     @Override
     public List<User> listAllUsers() {
-        return userMapper.selectList(new QueryWrapper<>());
+        LambdaQueryWrapper<User> queryWrapper =new LambdaQueryWrapper<>();
+        queryWrapper.gt(User::getAge, 18);
+        Page<User> page = new Page<>(2, 10);
+        page = userMapper.selectPage(page, queryWrapper);
+        return page.getRecords();
     }
 
     @Override
