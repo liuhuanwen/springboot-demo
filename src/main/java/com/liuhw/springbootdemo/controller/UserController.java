@@ -2,14 +2,18 @@ package com.liuhw.springbootdemo.controller;
 
 
 import com.liuhw.springbootdemo.dao.po.User;
+import com.liuhw.springbootdemo.dto.UserDTO;
 import com.liuhw.springbootdemo.service.impl.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @RequestMapping("user")
 @RestController
+@Validated
 public class UserController {
 
     @Autowired
@@ -32,11 +36,8 @@ public class UserController {
     }
 
     @PostMapping("addUser")
-    void addUser(String name, Integer age) {
-        User user = new User();
-        user.setName(name);
-        user.setAge(age);
-        userService.addUser(user);
+    void addUser(@RequestBody @Valid UserDTO userDTO) {
+        userService.addUser(userDTO);
     }
 
     @PostMapping("delUser")

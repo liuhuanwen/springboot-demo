@@ -5,6 +5,7 @@ import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.liuhw.springbootdemo.dao.mapper.UserMapper;
 import com.liuhw.springbootdemo.dao.po.User;
+import com.liuhw.springbootdemo.dto.UserDTO;
 import com.liuhw.springbootdemo.service.IUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -34,7 +35,10 @@ public class UserService extends ServiceImpl<UserMapper, User> implements IUserS
     }
 
     @Override
-    public void addUser(User user) {
+    public void addUser(UserDTO userDTO) {
+        User user = new User();
+        user.setAge(userDTO.getAge());
+        user.setName(userDTO.getName());
         userMapper.insert(user);
     }
 
