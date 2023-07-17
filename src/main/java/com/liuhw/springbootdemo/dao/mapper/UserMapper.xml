@@ -8,8 +8,12 @@
         select * from user
     </select>
 
-    <select id="queryUserByid" resultType="com.liuhw.springbootdemo.dao.po.User">
+    <select id="queryUserByid" parameterType="int" resultType="com.liuhw.springbootdemo.dao.po.User">
         select * from user where id = #{userId}
     </select>
+
+    <insert id="insertUser" parameterType="com.liuhw.springbootdemo.dao.po.User">
+        insert into user(name, age) values(#{name}, #{age})
+    </insert>
 
 </mapper>

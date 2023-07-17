@@ -20,4 +20,8 @@ public class UserService {
     public User queryUserById(Integer userId) {
         return userMapper.queryUserByid(userId);
     }
+
+    public void addUser(User user) {
+        userMapper.insertUser(user);
+    }
 }

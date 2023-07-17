@@ -12,4 +12,6 @@ public interface UserMapper extends BaseMapper<User> {
     List<User> queryUserList();
 
     User queryUserByid(Integer userId);
+
+    void insertUser(User user);
 }

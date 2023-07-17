@@ -30,4 +30,12 @@ public class UserController {
     User getUserInfoByPost(Integer userId) {
         return userService.queryUserById(userId);
     }
+
+    @PostMapping("addUser")
+    void addUser(String name, Integer age) {
+        User user = new User();
+        user.setName(name);
+        user.setAge(age);
+        userService.addUser(user);
+    }
 }
