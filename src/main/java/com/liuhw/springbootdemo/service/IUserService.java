@@ -1,12 +1,11 @@
 package com.liuhw.springbootdemo.service;
 
-import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.liuhw.springbootdemo.dao.po.User;
 
 import java.util.List;
 
-interface IUserService extends IService<User> {
+public interface IUserService extends IService<User> {
 
     List<User> listAllUsers(Integer pageSize, Integer pageNum);
     

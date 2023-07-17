@@ -1,9 +1,8 @@
 package com.liuhw.springbootdemo.controller;
 
 
-import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.liuhw.springbootdemo.dao.po.User;
-import com.liuhw.springbootdemo.service.UserService;
+import com.liuhw.springbootdemo.service.impl.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
