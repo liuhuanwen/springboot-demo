@@ -4,4 +4,12 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.liuhw.springbootdemo.dao.mapper.UserMapper">
 
+    <select id="selectAllUsers" resultType="com.liuhw.springbootdemo.dao.po.User">
+        <include refid="selectUser"/>
+    </select>
+
+    <sql id="selectUser"><![CDATA[
+        select * from user;
+    ]]></sql>
+
 </mapper>

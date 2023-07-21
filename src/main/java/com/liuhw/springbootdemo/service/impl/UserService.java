@@ -20,11 +20,12 @@ public class UserService extends ServiceImpl<UserMapper, User> implements IUserS
 
     @Override
     public List<User> listAllUsers(Integer pageSize, Integer pageNum) {
-        LambdaQueryWrapper<User> queryWrapper =new LambdaQueryWrapper<>();
-//        queryWrapper.gt(User::getAge, 18);
-        Page<User> page = new Page<>(pageNum, pageSize);
-        page = userMapper.selectPage(page, queryWrapper);
-        return page.getRecords();
+//        LambdaQueryWrapper<User> queryWrapper =new LambdaQueryWrapper<>();
+////        queryWrapper.gt(User::getAge, 18);
+//        Page<User> page = new Page<>(pageNum, pageSize);
+//        page = userMapper.selectPage(page, queryWrapper);
+//        return page.getRecords();
+        return userMapper.selectAllUsers();
     }
 
     @Override
